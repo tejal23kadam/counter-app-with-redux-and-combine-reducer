@@ -1,31 +1,17 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { multiplyFive } from '../redux';
+import { useSelector, useDispatch } from "react-redux";
+import {multiplyFive } from '../redux/FiveSlice';
 
-function FiveContainer(props){
+const FiveContainer= () =>{
+	const val_five = useSelector(state => state.five.val_five);
+	const dispatch = useDispatch();
 	return (
-		<div className='FiveContainer'>
-			<h1>{props.val_five}</h1>
+		<div>
+			<h1>{val_five}</h1>
 			<h3>Click the button to multiply the above number by 5</h3>
-			<button onClick={props.multiplyFive}>Multiply by 5</button>
+			{/* <button onClick={() => dispatch(multiplyFive({type: 'MULTIPLY_FIVE'}))}>Multiply by 5</button> */}
+			<button onClick={() => dispatch(multiplyFive())}>Multiply by 5</button> 
 		</div>
 	);
 }
-
-const mapStateToProps = state => {
-	return {
-		val_five: state.five.val_five
-	}
-}
-
-
-const mapDispatchToProps = dispatch => {
-	return {
-		multiplyFive: () => dispatch(multiplyFive())
-	}
-}
-
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(FiveContainer);
+export default FiveContainer;
