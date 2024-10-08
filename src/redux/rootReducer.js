@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from '@reduxjs/toolkit';
 import TwoReducer from './multiplyTwo/TwoReducer';
 import FiveReducer from './multiplyFive/FiveReducer';
 
