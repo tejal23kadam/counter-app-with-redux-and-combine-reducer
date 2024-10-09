@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import {multiplyTwo } from '../redux/TwoSlice';
+import {multiplyTwo } from '../slice/TwoSlice';
 
 const TwoContainer = () => {
 	const val_two = useSelector(state => state.two.val_two);
